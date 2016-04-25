@@ -241,7 +241,7 @@
 					@if (Auth::guest())	
 					@else
 					 <div class="pull-right">
-						 <a href="{{ url('/auth/logout') }}"  class="btn btn-default btn-flat">Logout</a>
+						 <a href="{{ url('/logout') }}"  class="btn btn-default btn-flat">Logout</a>
 						  </div>
 					@endif
 	

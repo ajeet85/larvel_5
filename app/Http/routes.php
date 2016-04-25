@@ -37,7 +37,7 @@ Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
 Route::get('templateexample', 'WelcomeController@template_example');
-
+Route::get('logout', 'Auth\AuthController@logout');
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
