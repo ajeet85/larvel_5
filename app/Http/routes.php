@@ -44,3 +44,29 @@ Route::controllers([
 ]);
 Route::resource('books','BookController');
 });
+
+// API routes...
+Route::get('users/{user}',function(App\User $user){
+return $user;
+
+});
+
+// API routes... pass the model class in function
+Route::get('books/{book}',function(App\Model\Book $book){
+return $book;
+
+});
+
+// API routes...
+Route::get('/api/v1/books/{id?}', ['middleware' => 'auth.basic', function($id = null) {
+if ($id == null) {
+    $products = App\Model\Book::all(array('name','cat_id','author','image'));//modal filable value
+} else {
+    $products =  App\Model\Book::find($id, array('name','cat_id','author','image'));
+}
+return Response::json(array(
+            'error' => false,
+            'products' => $products,
+            'status_code' => 200
+        ));
+}]);
